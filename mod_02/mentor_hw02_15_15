@@ -1,0 +1,95 @@
+result = None
+operand = None
+operator = None
+wait_for_number = True
+
+while True:
+    user_input = input(">>> ")
+    
+    if user_input == "=":
+        break
+    
+    if wait_for_number: # if wait_for_number == True  так не гарно)
+        try:
+            # inp_try = input(">>> ")
+            operand = int(user_input)
+            wait_for_number = False
+            # if (result == None) :
+            #     result = float(inp_num)
+            # else:
+            #     operand = float(inp_num)
+            #     if (operator=="+"):
+            #         result = result + operand
+            #     elif (operator=="-"):
+            #         result = result - operand
+            #     elif (operator=="*"):
+            #         result = result * operand
+            #     elif (operator=="/"):
+            #         result = result / operand
+            #     operator = None
+            # wait_for_number = False
+            # inp_num = None
+        except ValueError:
+            print('\'' + str(user_input) + '\'' + ' is not a number. Try again.')
+            inp_try = None
+            continue
+    else:
+        # inp_ch = str(input(">>> ")) input завжди рядок)
+        # operator = None
+        if user_input in ("+", "-", "*", "/"): # (inp_ch=="+") or (inp_ch=="-") or (inp_ch=="*") or (inp_ch=="/") не гарно
+            operator = user_input
+            wait_for_number = True
+        # elif (inp_ch=="="):
+        #     print ('Result: ' + str(float(result)) )
+        #     result = None
+        #     operand = None
+        #     operator = None
+        #     wait_for_number = True
+        #     inp_ch = None
+        else:
+            print(f"{user_input} is not '+' or '-' or '*' or '/' or '=' . Try again") # конкатенація не саме ефективне рішення
+            continue
+            # wait_for_number = False
+            # inp_ch = None
+    if not result:
+        result = operand
+        operand = None
+        continue
+    
+    if operand and operator:
+        if (operator=="+"):
+            result += operand
+        elif (operator=="-"):
+            result -= operand
+        elif (operator=="*"):
+            result *= operand
+        elif (operator=="/"):
+            result /= operand
+        operator = None
+        operand = None
+        
+            
+        
+            
+                
+            
+                
+            
+                
+            
+                
+    
+        
+                
+                
+                
+                
+        
+            
+        
+            
+
+        
+            
+        
+            
